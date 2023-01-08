@@ -38,7 +38,7 @@ button.addEventListener('click', function() {
   };
   if(text.length>30){
     document.getElementById("loadingSpin").style.display = "flex";
-    fetch('http://localhost:8080/newDocument', {
+    fetch('http://94.245.88.144:8080/newDocument', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ button.addEventListener('click', function() {
       }
       var userId = sessionStorage.getItem("user_id");
       if(userId){
-        fetch('http://localhost:8080/saveNewDocument', {
+        fetch('http://94.245.88.144:8080/saveNewDocument', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -129,7 +129,7 @@ document.getElementById("registerButton").addEventListener("click", function(eve
   const password = document.getElementById("password2").value;
   const passwordConfirm = document.getElementById("passwordConfirm").value;
   if (password === passwordConfirm) {
-    fetch('http://localhost:8080/newUser', {
+    fetch('http://94.245.88.144:8080/newUser', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -167,7 +167,7 @@ document.getElementById("login").addEventListener("click", function() {
     "password": password
   };
 
-  fetch("http://localhost:8080/user", {
+  fetch("http://94.245.88.144:8080/user", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -181,7 +181,7 @@ document.getElementById("login").addEventListener("click", function() {
     sessionStorage.setItem("username", data.username);
     buttonLogin.innerHTML  = data.username;
     modal.style.display = 'none';  // gizle
-    fetch("http://localhost:8080/getDocuments", {
+    fetch("http://94.245.88.144:8080/getDocuments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -243,7 +243,7 @@ function iconsDetect(){
     icons[i].addEventListener('click', event => {
       const document_id= icons[i].getAttribute('data-my-value');
       const user_id = sessionStorage.getItem("user_id");
-      fetch("http://localhost:8080/deleteDocument", {
+      fetch("http://94.245.88.144:8080/deleteDocument", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
