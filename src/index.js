@@ -43,7 +43,8 @@ button.addEventListener('click', function() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
+      redirect: 'manual'
     })
     .then(response => response.json())
     .then(data => {
@@ -66,7 +67,8 @@ button.addEventListener('click', function() {
           body: JSON.stringify({
             document:text,
             user_id:userId
-          })
+          }),
+          redirect: 'manual'
         })
         .then(response => response.json())
         .then(data=>{
@@ -137,7 +139,8 @@ document.getElementById("registerButton").addEventListener("click", function(eve
       body: JSON.stringify({
         username: document.getElementById("username2").value,
         password: password
-      })
+      }),
+      redirect: 'manual'
     })
     .then(response => response.json())
     .then(data => {
@@ -172,7 +175,8 @@ document.getElementById("login").addEventListener("click", function() {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
+    redirect: 'manual'
   })
   .then(response => response.json())
   .then(data => {
@@ -188,7 +192,8 @@ document.getElementById("login").addEventListener("click", function() {
       },
       body: JSON.stringify({
         user_id:data.user_id
-      })
+      }),
+      redirect: 'manual'
     })
     .then(response => response.json())
     .then(data => {
@@ -251,7 +256,8 @@ function iconsDetect(){
         body: JSON.stringify({
           user_id:user_id,
           document_id:document_id,
-        })
+        }),
+        redirect: 'manual'
       })
       .then(response => {
         const divs = document.getElementsByTagName('div');
